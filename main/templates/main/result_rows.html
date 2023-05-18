@@ -1,0 +1,5 @@
+{% for movie in movies %}
+<tr {% if forloop.last %} hx-get="{% url 'get-next-rows' %}?offset={{offset}}" hx-trigger="revealed" hx-swap="afterend" {% endif %}>
+    <td>{{ movie.title }}</td>
+</tr>
+{% endfor %}

@@ -1,0 +1,305 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+  }
+
+  .footer-logo {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+  }
+
+  .title, .footer-title, .article-content p, .footer_menu, .modal-body, .created, .post-title, .title1, a {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  a:link {
+    text-decoration: none;
+    color: black;
+  }
+
+/* Поле поиска */
+  .search:focus {
+    background-color: #E8E8E8;
+  }
+
+  .not-visible {
+    display: none;
+  }
+
+
+  .results-card {
+    position: fixed;
+    background-color: white;
+    width: 260px;
+    min-width: 260px;
+    max-height: 900px;
+    box-shadow: 0 8px 8px 0 rgba(0,0,0,0.25);
+    border-radius: 7px;
+    /* margin-top: 50px; */
+    padding-right: 5px;
+    z-index: 99;
+  }
+
+  .item {
+    text-decoration: none;
+    font-weight: 400;
+    color: black;
+  }
+
+  .post-img {
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+/* Поле поиска */
+
+
+/* Стилизация детальной страницы поста detail  */
+/* .post-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  max-width: 1240px;
+  padding: 0 40px;
+  margin: 0 auto;
+} */
+
+.headline {
+  max-width: 744px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.headline h1 {
+  font-weight: 700;
+  /* font-size: 52px; */
+  line-height: 3,375em;
+  margin-bottom: 12px;
+  letter-spacing: -.2px;
+  font-size: 1,25em;
+}
+
+  /* .article__img {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 640px;
+    background: no-repeat 50%;
+    background-size: cover;
+    border-radius: 9px;
+    margin-bottom: 48px;
+  } */
+
+/* .post-title {
+  margin: 0 auto;
+  display: flex;
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 54px;
+  letter-spacing: -.2px;
+  text-align: center;
+} */
+/* Стилизация детальной страницы поста detail  */
+
+
+
+
+/* Начало стиля карточек по типу wylsa */
+.postsGrid {
+  /* width: 100%; */
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+}
+
+.postCard {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  padding-top: 16px;
+  border-radius: 9px;
+  z-index: 1;
+}
+
+.postCard:hover {
+  cursor: pointer;
+}
+
+.postCard-wrapper {
+ height: 376px;   /* задаем фиксированную высоту карточек */
+}
+
+.cont1 {
+  height: 100%;
+}
+
+/* item-photo это темная подложка под картинкой .item-photo img (для затемнения) */
+/* Настройки отсюда https://snipp.ru/html-css/darkening-image */
+.item-photo {
+  background: #000;
+  border-radius: 9px;
+  height: 100%;
+}
+
+.item-photo img {
+	opacity: 0.7;
+  border-radius: 9px;
+}
+
+.postCard-thumbnail {
+  height: 100%;
+}
+
+
+.title1 {
+  font-weight: 500;
+  font-size: 1.125em;
+  letter-spacing: -.2px;
+  line-height: 1.0em;
+  color: white;
+}
+
+/* Конец стиля карточек по типу wylsa */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* что-то с тегами */
+.tag-cloud {
+  font-size: 16px;
+  padding-left: 15px;
+}
+.tag-cloud--item {
+  padding: 2px 4px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.tag-cloud--item:hover {
+  background-color: rgba(0,0,0,.1);
+  border: 1px solid #333;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  opacity: 1 !important;
+  z-index: 100 !important;
+}
+.light .tagcloud--item {
+  color: #fff;
+}
+.light .tagcloud--item:hover {
+  background-color: rgba(255,255,255,.1);
+  border: 1px solid #fff;
+}
+
+.tag-names {
+  font-size: 16px;
+  color: black;
+  font-weight: 500;
+}
+
+/* что-то с тегами */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.form__group {
+  position: relative;
+  /* padding: 15px 0 0; */
+  padding-top: 15px;
+  padding-right: 15px;
+  /* margin-top: 10px; */
+  width: 50%;
+}
+
+.form__field {
+  /* font-family: inherit; */
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #000000;
+  outline: 0;
+  font-size: 2,25rem;
+  color: #000000;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  font-weight: 500;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.1rem;
+    cursor: text;
+    top: 20px;
+    font-weight: 500;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #9b9b9b;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #000000;  
+    font-weight:700;
+  }
+  /* padding-bottom: 2px;   */
+  background-color: white;
+  font-weight: 500;
+  border-width: 3px;
+  border-image: linear-gradient(90deg, rgba(34,230,121,1) 0%, rgba(22,184,157,1) 24%, rgba(18,185,194,1) 57%, rgba(0,212,255,1) 100%);
+  border-image-slice: 1;
+}
+/* reset input */
+.form__field{
+  &:required,&:invalid { box-shadow:none; }
+}

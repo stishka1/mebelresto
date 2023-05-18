@@ -1,0 +1,17 @@
+<div class="row">
+  {% for movie in movies %}
+  <div id="movie-{{ movie.pk }}" class="col-lg-4 cards">
+    <div class="container1">
+      <div class="caption">
+        <a href="" hx-get="{% url 'edit_movie' pk=movie.pk %}" hx-target="#dialog">
+          <span class="title1">{{ movie.title }}</span>
+        </a>
+        <span>{{ tag.name }}</span>
+      </div>
+      <a hx-get="{% url 'edit_movie' pk=movie.pk %}" hx-target="#dialog">
+        <img class="img1 shadow" src="{{ movie.preview_img.url }}" alt="">
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>

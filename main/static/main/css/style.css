@@ -1,0 +1,626 @@
+/* 2я часть стилизации для удобства читаемости */
+
+
+
+
+  /* ============ Адаптивный дизайн ============  */
+  .main-container {
+    max-width: 1200px;
+    margin: 0px auto;
+    /* padding: 0px 10px; */
+  }
+
+  @media (max-width: 3600px) {
+    .main-container{
+      max-width: 1200px;
+    }
+
+    .nav-item {
+      padding-left: 40px;
+    }
+
+    .postsGrid {
+      padding: 0px;
+    }
+
+    .post-header {
+          padding: 0 40px 36px;
+          position: absolute;
+          bottom: 0;
+        }
+
+  }
+  
+  @media (max-width: 1200px) {
+    .main-container{
+      max-width: 970px;
+    }
+
+    .nav-item {
+      padding-left: 40px;
+    }
+
+    .postsGrid {
+      padding: 0px;
+    }
+
+    .post-header {
+      padding: 0 40px 36px;
+      position: absolute;
+      bottom: 0;
+    }
+
+  }
+  
+  @media (max-width: 992px) {
+    .main-container{
+      max-width: 750px;
+    }
+    .nav-item {
+      padding-left: 20px;
+    }
+
+    .postsGrid {
+      padding: 0px;
+    }
+
+    .post-header {
+      padding: 0 40px 36px;
+      position: absolute;
+      bottom: 0;
+    }
+
+  }
+  
+  @media (max-width: 767px) {
+    .main-container{
+      max-width: none;
+    }
+
+    .nav-item {
+      padding-left: 0px;
+    }
+
+    .navbar .navbar-nav {
+      display: inline-block;
+      float: none;
+      vertical-align: top;
+      /* justify-content: space-between; */
+  }
+
+  .navbar .navbar-collapse {
+      text-align: center;
+  }
+
+  .postsGrid {
+    padding: 0 18px;
+  }
+
+
+  .post-header {
+    padding: 0 25px 25px;
+    position: absolute;
+    bottom: 0;
+  }
+
+  }
+  
+/* ============ Адаптивный дизайн ============  */
+
+
+
+/* Стилизация навбара верхней шапки */
+/* .menubar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1240px;
+  height: 80px;
+  margin: 0 auto;
+  padding: 0 40px;
+} */
+
+.navbar {
+    border-radius: 1.25rem;
+    align-items: center;
+  }
+  
+  .nav-item a {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  .nav-item a:hover {
+      background-color: #dadada;
+      /* color: #3392de; */
+      border-radius: 10px;
+  }
+
+  /* .search-box {
+  align-items: center;
+  } */
+/* Стилизация навбара верхней шапки */
+
+
+
+/* Модал - стилизация модального окна */
+.modal-body p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    padding-left: 15px;
+  }
+
+.modal-header span {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+/* Модал - стилизация модального окна */
+
+
+
+
+/* Блок пагинации */
+.pagination {
+    margin-top: 80px;
+  }
+/* Блок пагинации */
+
+
+
+
+ /* фУТЕР - Подвал */
+ .footer_area {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    webkit-box-shadow: 0 8px 48px 8px rgba(47, 91, 234, 0.175);
+    /* box-shadow: 0 8px 48px 8px rgba(47, 91, 234, 0.175); */
+    padding-top:60px;
+}
+.footer_area .row {
+    margin-left: -25px;
+    margin-right: -25px;
+}
+.footer_area .row .col,
+.footer_area .row .col-1,
+.footer_area .row .col-10,
+.footer_area .row .col-11,
+.footer_area .row .col-12,
+.footer_area .row .col-2,
+.footer_area .row .col-3,
+.footer_area .row .col-4,
+.footer_area .row .col-5,
+.footer_area .row .col-6,
+.footer_area .row .col-7,
+.footer_area .row .col-8,
+.footer_area .row .col-9,
+.footer_area .row .col-auto,
+.footer_area .row .col-lg,
+.footer_area .row .col-lg-1,
+.footer_area .row .col-lg-10,
+.footer_area .row .col-lg-11,
+.footer_area .row .col-lg-12,
+.footer_area .row .col-lg-2,
+.footer_area .row .col-lg-3,
+.footer_area .row .col-lg-4,
+.footer_area .row .col-lg-5,
+.footer_area .row .col-lg-6,
+.footer_area .row .col-lg-7,
+.footer_area .row .col-lg-8,
+.footer_area .row .col-lg-9,
+.footer_area .row .col-lg-auto,
+.footer_area .row .col-md,
+.footer_area .row .col-md-1,
+.footer_area .row .col-md-10,
+.footer_area .row .col-md-11,
+.footer_area .row .col-md-12,
+.footer_area .row .col-md-2,
+.footer_area .row .col-md-3,
+.footer_area .row .col-md-4,
+.footer_area .row .col-md-5,
+.footer_area .row .col-md-6,
+.footer_area .row .col-md-7,
+.footer_area .row .col-md-8,
+.footer_area .row .col-md-9,
+.footer_area .row .col-md-auto,
+.footer_area .row .col-sm,
+.footer_area .row .col-sm-1,
+.footer_area .row .col-sm-10,
+.footer_area .row .col-sm-11,
+.footer_area .row .col-sm-12,
+.footer_area .row .col-sm-2,
+.footer_area .row .col-sm-3,
+.footer_area .row .col-sm-4,
+.footer_area .row .col-sm-5,
+.footer_area .row .col-sm-6,
+.footer_area .row .col-sm-7,
+.footer_area .row .col-sm-8,
+.footer_area .row .col-sm-9,
+.footer_area .row .col-sm-auto,
+.footer_area .row .col-xl,
+.footer_area .row .col-xl-1,
+.footer_area .row .col-xl-10,
+.footer_area .row .col-xl-11,
+.footer_area .row .col-xl-12,
+.footer_area .row .col-xl-2,
+.footer_area .row .col-xl-3,
+.footer_area .row .col-xl-4,
+.footer_area .row .col-xl-5,
+.footer_area .row .col-xl-6,
+.footer_area .row .col-xl-7,
+.footer_area .row .col-xl-8,
+.footer_area .row .col-xl-9,
+.footer_area .row .col-xl-auto {
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.single-footer-widget {
+    position: relative;
+    z-index: 1;
+}
+.single-footer-widget .copywrite-text a {
+    color: #747794;
+    font-size: 1rem;
+}
+.single-footer-widget .copywrite-text a:hover,
+.single-footer-widget .copywrite-text a:focus {
+    color: #3f43fd;
+}
+.single-footer-widget .widget-title {
+    margin-bottom: 1.5rem;
+}
+.single-footer-widget .footer_menu li a {
+    color: #747794;
+    margin-bottom: 1rem;
+    display: block;
+    font-size: 1rem;
+}
+.single-footer-widget .footer_menu li a:hover,
+.single-footer-widget .footer_menu li a:focus {
+    color: #3f43fd;
+}
+.single-footer-widget .footer_menu li:last-child a {
+    margin-bottom: 0;
+}
+
+.footer_social_area {
+    position: relative;
+    z-index: 1;
+}
+.footer_social_area a {
+    border-radius: 50%;
+    height: 40px;
+    text-align: center;
+    width: 40px;
+    display: inline-block;
+    background-color: #f5f5ff;
+    line-height: 40px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin-right: 10px;
+}
+.footer_social_area a i {
+    line-height: 36px;
+}
+.footer_social_area a:hover,
+.footer_social_area a:focus {
+    color: #ffffff;
+}
+
+@-webkit-keyframes bi-cycle {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes bi-cycle {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 100%;
+    }
+}
+ol li, ul li {
+    list-style: none;
+}
+
+ol, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* фУТЕР - Подвал */
+
+
+
+
+
+/* Blog Sidebar
+-------------------*/
+.blog-aside .widget {
+    box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+    border-radius: 5px;
+    overflow: hidden;
+    background: #ffffff;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    display: inline-block;
+    /* vertical-align: top; */
+  }
+  .blog-aside .widget-body {
+    padding: 15px;
+  }
+  .blog-aside .widget-title {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  .blog-aside .widget-title h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fc5356;
+    margin: 0;
+  }
+  .blog-aside .widget-author .media {
+    margin-bottom: 15px;
+  }
+  .blog-aside .widget-author p {
+    font-size: 14px;
+    margin: 0;
+  }
+  .blog-aside .widget-author .avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .blog-aside .widget-author h6 {
+    font-weight: 600;
+    color: #20247b;
+    font-size: 22px;
+    margin: 0;
+    padding-left: 20px;
+  }
+  .blog-aside .post-aside {
+    margin-bottom: 15px;
+  }
+  .blog-aside .post-aside .post-aside-title h5 {
+    margin: 0;
+  }
+  .blog-aside .post-aside .post-aside-title a {
+    font-size: 18px;
+    color: #20247b;
+    font-weight: 600;
+  }
+  .blog-aside .post-aside .post-aside-meta {
+    padding-bottom: 10px;
+  }
+  .blog-aside .post-aside .post-aside-meta a {
+    color: #6F8BA4;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .blog-aside .latest-post-aside + .latest-post-aside {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 15px;
+  }
+  .blog-aside .latest-post-aside .lpa-right {
+    width: 90px;
+  }
+  .blog-aside .latest-post-aside .lpa-right img {
+    border-radius: 3px;
+  }
+  .blog-aside .latest-post-aside .lpa-left {
+    padding-right: 15px;
+  }
+  .blog-aside .latest-post-aside .lpa-title h5 {
+    margin: 0;
+    font-size: 15px;
+  }
+  .blog-aside .latest-post-aside .lpa-title a {
+    color: #20247b;
+    font-weight: 600;
+  }
+  .blog-aside .latest-post-aside .lpa-meta a {
+    color: #6F8BA4;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .blog-single {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  
+  .article {
+    box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+    border-radius: 5px;
+    overflow: hidden;
+    background: #ffffff;
+    padding: 15px;
+    margin: 15px 0 30px;
+  }
+  .article .article-title {
+    padding: 15px 0 20px;
+  }
+  .article .article-title h6 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .article .article-title h6 a {
+    text-transform: uppercase;
+    color: #fc5356;
+    border-bottom: 1px solid #fc5356;
+  }
+  .article .article-title h2 {
+    color: #20247b;
+    font-weight: 600;
+  }
+  .article .article-title .media {
+    padding-top: 15px;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 20px;
+  }
+  .article .article-title .media .avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .article .article-title .media .media-body {
+    padding-left: 8px;
+  }
+  .article .article-title .media .media-body label {
+    font-weight: 600;
+    color: #fc5356;
+    margin: 0;
+  }
+  .article .article-title .media .media-body span {
+    display: block;
+    /* font-size: 12px; */
+  }
+  
+  .article .article-content h1,
+  .article .article-content h2,
+  .article .article-content h3,
+  .article .article-content h4,
+  .article .article-content h5,
+  .article .article-content h6 {
+    color: #20247b;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  .article .article-content blockquote {
+    max-width: 600px;
+    padding: 15px 0 30px 0;
+    margin: 0;
+  }
+  .article .article-content blockquote p {
+    font-size: 20px;
+    font-weight: 500;
+    color: #fc5356;
+    margin: 0;
+  }
+  .article .article-content blockquote .blockquote-footer {
+    color: #20247b;
+    font-size: 16px;
+  }
+  .article .article-content blockquote .blockquote-footer cite {
+    font-weight: 600;
+  }
+  .article {
+    padding-top: 10px;
+  }
+  
+  .article-comment {
+    box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+    border-radius: 5px;
+    overflow: hidden;
+    background: #ffffff;
+    padding: 20px;
+  }
+  .article-comment h4 {
+    color: #20247b;
+    font-weight: 700;
+    margin-bottom: 25px;
+    font-size: 22px;
+  }
+  img {
+      max-width: 100%;
+  }
+  img {
+      vertical-align: middle;
+      border-style: none;
+  }
+
+
+  /* Blog Sidebar
+
+
+
+
+
+
+/* Кнопка прокрутки наверх */
+.scrollup{
+    width:40px;
+    height:40px;
+    opacity:0.3;
+    position:fixed;
+    bottom:50px;
+    right:100px;
+    display:none;
+    text-indent:-9999px;
+    background: url('../../main/images/icon_top.png') no-repeat;
+    }
+/* Кнопка прокрутки наверх */
+
+
+
+
+
+
+/* ============ Стилизация тегов ============ */
+
+a {
+    text-decoration: none;
+  }
+  
+  .tag {
+    display: inline-block;
+    border-radius: 3px;
+    padding: .2em .5em .3em;
+    border-radius: 2px;
+    background: var(--tag-bg);
+    color: var(--text-color);
+    font-weight: 600;
+    margin: .25em .1em
+  }
+  
+  h1.tag {
+    margin-left: 0;
+    margin-right: 0
+  }
+  
+  .tag-sm {
+    font-size: .7em;
+    display: inline-block;
+    letter-spacing: .15ch;
+    font-weight: 400
+  }
+  
+  .tag-lg {
+    font-size: 1.2em;
+    border-radius: 4px
+  }
+  
+  .tag-bg {
+    background: var(--background)
+  }
+  
+  .tag-minimum-viable-product,.tag-mvp {
+    color: #fff;
+    background-image: linear-gradient(90deg,#ff8901,#db1d5f);
+    font-weight: 700
+  }
+  
+  .tag-stripe {
+    color: #fff;
+    background: #6675e0
+  }
+    /* ============ Стилизация тегов ============ */
+
+

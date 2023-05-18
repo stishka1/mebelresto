@@ -1,0 +1,270 @@
+{% extends "main/base.html" %}
+{% load sass_tags %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сайт реставрационной студии</title>
+
+  <!-- Fotorama from CDNJS, 19 KB -->
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
+  <script src="{% static 'main/js/jquery.twbsPagination.js' %}"></script>
+  <script src="{% static 'main/js/jquery.simplePagination.js' %}"></script>
+
+</head>
+
+
+<body class="clear">
+    <div class="main-container">
+      <div id="data-container"></div>
+      <div id="pagination-container"></div>
+
+
+          <div class="row postsGrid">
+              {% for post in posts %}
+              {% if post.is_published %}
+                <div class="col-md-4 postCard">
+                  <div class="postCard-wrapper" data-bs-toggle="modal" data-bs-target="#exampleModal-{{forloop.counter}}"> 
+                    <div class="cont1">
+                      <div class="item-photo">
+                        <img class="postCard-thumbnail add" src="{{ post.post_img1.url }}" alt="{{ post.slug }}">
+                      </div>
+                      <div class="post-header">
+                        <span class="title1">{{ post.title }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+              {% endfor %}
+          </div>
+
+        <!-- Пагинация -->
+        <div class="row">
+          <div class="col d-flex justify-content-center mt-4">
+            <nav aria-label="">
+              <ul id="pagination-demo" class="pagination justify-content-center pagination-sm">
+                  <li class="page-item {% if not posts.has_previous %} disabled {% endif %}">
+                      <a class="page-link" href="{% if posts.has_previous %} {% url 'index' page_number=posts.previous_page_number %} {% else %} # {% endif %}" tabindex="-1" aria-disabled="true">
+                        <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                      </a>
+                  </li>
+
+                    {% for page in posts.paginator.page_range %}
+                    <li class="page-item">
+                        <a class="page-link" id="page-content" href="{% url 'index' page_number=page %}">
+                            {{ page }}
+                        </a>
+                    </li>
+                    {% endfor %}
+
+                  <li class="page-item {% if not posts.has_next %} disabled {% endif %}">
+                      <a class="page-link" href="{% if posts.has_next %} {% url 'index' page_number=posts.next_page_number %} {% else %} # {% endif %}" tabindex="-1" aria-disabled="true">
+                        <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                      </a>
+                  </li>
+              </ul>
+          </nav>
+        </div>
+      </div>
+
+      <a href="#" class="scrollup">Наверх</a>
+
+    <!-- Модальное окно -->
+    {% for post in posts %}
+    <div class="modal fade" id="exampleModal-{{forloop.counter}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+          <div class="row">
+            <div class="col-xl-8">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <div class="fotorama" data-width="100%" data-loop="true" data-nav="false" data-keyboard="true" data-video="true">
+                {% if post.post_img1 %}
+                  <img src="{{ post.post_img1.url }}">
+                {% endif %}
+                {% if post.post_img2 %}
+                  <img src="{{ post.post_img2.url }}">
+                {% endif %}
+                {% if post.post_img3 %}
+                  <img src="{{ post.post_img3.url }}">
+                {% endif %}
+                {% if post.post_img4 %}
+                  <img src="{{ post.post_img4.url }}">
+                {% endif %}
+                {% if post.post_img5 %}
+                  <img src="{{ post.post_img5.url }}">
+                {% endif %}
+                {% if post.post_img6 %}
+                  <img src="{{ post.post_img6.url }}">
+                {% endif %}
+                {% if post.post_img7 %}
+                  <img src="{{ post.post_img7.url }}">
+                {% endif %}
+                {% if post.post_img8 %}
+                  <img src="{{ post.post_img8.url }}">
+                {% endif %}
+                {% if post.post_img9 %}
+                  <img src="{{ post.post_img9.url }}">
+                {% endif %}
+                {% if post.post_img10 %}
+                  <img src="{{ post.post_img10.url }}">
+                {% endif %}
+                {% if post.video %}
+                  <a href="#">
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+            <div class="col-xl-4">
+              <div class="modal-header d-flex justify-content-center" style="padding-left: 0px;">
+                <span class="modal-title" id="exampleModalLabel">{{ post.title }}</span>
+              </div>
+              <div class="row">
+                  <div class="col">
+                    <div class="modal-body" style="padding-left: 0px;">
+                      {% if post.hide_description == False %}
+                        {{ post.description|safe }}
+                      {% endif %}
+                    </div>
+                    <div class="tag-cloud">
+                      {% for tag in post.tags.all %}
+                      <a class="tag-links" href="{% url 'tag_list' tag.slug %}">
+                          <span class="tag-names">#{{ tag.name }}</span>
+                      </a>
+                      {% endfor %}
+                      <!-- tag tag-stripe tag-sm shadow -->
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="col">
+              <button class="btn btn-primary btn-sm add" value="{{post.slug}}">Открыть ссылку в новой вкладке</button>
+            </div>
+          </div> -->
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+   <!-- Скрипт 1: По клику на картинке вытаскиваем alt = slug и подставляем в строку браузера -->
+  <script>
+    $(document).on('click', ".add", function(event){
+      var sl = event.target.alt;
+      post_detail = window.history.pushState('abc', "Title", "/"+sl);
+    });
+  </script>
+
+    <!-- Скрипт 2: Если модальное окно скрыто -> удаление slug из адрессной строки браузера (скрипт 1) -->
+    <script>
+      $(document).on('hide.bs.modal', ".modal", function(event){
+          history.replaceState(null, null, '/');
+      });
+    </script>
+
+    <!-- Кнопка наверх -->
+  <script type="text/javascript">
+    $(document).ready(function(){
+    
+    $(window).scroll(function(){
+    if ($(this).scrollTop() > 100) {
+    $('.scrollup').fadeIn();
+    } else {
+    $('.scrollup').fadeOut();
+    }
+    });
+    
+    $('.scrollup').click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 100);
+    return false;
+    });
+    
+    });
+  </script>
+
+<!-- Живой поиск с подстановкой на AJAX и Javascript -->
+  <script>
+    const searchForm = document.getElementById('search-form')
+    const searchInput = document.getElementById('search-input')
+    const resultsBox = document.getElementById('results-box')
+    const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value
+    
+    const sendSearchData = (post) => {
+      $.ajax({
+        type: 'POST',
+        url: 'live_search/',
+        data: {
+          'csrfmiddlewaretoken': csrf,
+          'post': post,
+        },
+        success: (res)=> {
+          console.log(res.data)
+          const data = res.data
+          if (Array.isArray(data)) {
+            resultsBox.innerHTML = ""
+            data.forEach(post=> {
+              resultsBox.innerHTML += `
+                <a href="${post.slug}" class="item">
+                  <div class="row mt-2 mb-2">
+                    <div class="col-4">
+                      <img src="${post.image}" class="post-img">
+                    </div>
+                    <div class="col-8">
+                      <p style="font-size: 12px; margin-top: 10px;">${post.title}</p>
+                    </div>
+                  </div>
+                </a>
+              `
+            })
+          } else {
+            if (searchInput.value.length > 0) {
+              resultsBox.innerHTML = `<b>${data}</b>`
+            } else {
+              resultsBox.classList.add('not-visible')
+            }
+          }
+        },
+        error: (err)=> {
+          console.log(err)
+        }
+      })
+    }
+
+    searchInput.addEventListener('keyup', e=> {
+        history.replaceState(null, null, '/')
+        console.log(e.target.value)
+
+        if (resultsBox.classList.contains('not-visible')) {
+          resultsBox.classList.remove('not-visible')
+        }
+
+        sendSearchData(e.target.value)
+    })
+  </script>
+
+  <script>
+    // $('#pagination-demo').twbsPagination({
+    //     totalPages: 6,
+    //     visiblePages: 3,
+    //     onPageClick: function (event, page) {
+    //         $('#page-content').text('Page ' + page);
+    //     }
+    // });
+  </script>
+
+
+</body>
+</html>
+
+{% endblock %}

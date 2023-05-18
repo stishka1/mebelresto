@@ -1,0 +1,165 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сайт реставрационной студии</title>
+
+      <!-- Всегда первым идет jquery, потом все кастомные скрипты-->
+      <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+
+      <!-- Шрифт Roboto, шрифт всегда должен быть перед подключением css файла -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+       <!-- Дополнительный файл стилей карточек -->
+      <link rel="stylesheet" type="text/css" href="{% static 'main/css/base.css' %}">
+      <!-- Основной файл стилей -->
+      <link rel="stylesheet" type="text/css" href="{% static 'main/css/style.css' %}">
+
+      <!-- <link rel="shortcut icon" type="image/png" href="{% static 'generator/images/favicon.png' %}"/> -->
+
+      <!--FontAwesome CDN-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+      <script src="https://kit.fontawesome.com/25aa5b4562.js" crossorigin="anonymous"></script>
+
+      <!-- Bootstrap 5-->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+      <!-- MDB -->
+      <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet"/> -->
+      <!-- MDB -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
+
+      <!-- Отрытие картинки на детальной странице товара на максимум -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+
+</head>
+<body>
+
+    <div class="main-container">
+
+        <nav class="navbar navbar-expand-md navbar-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'index' %}" style="padding-top: 20px;">
+                    <img src="{% static 'main/images/logo_small.png' %}" alt="Logo" width="55" height="50" class="d-inline-block align-text-center">
+                    <span style="font-weight: 700; font-size: 20px;">MebelRest</span> 
+                </a>
+                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button> -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="padding-top: 20px;">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'services' %}">Услуги</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'about' %}">Контакты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Новости</a>
+                        </li>
+                    </ul>
+                    <div class="form__group field search-box" style="min-width: 260px; max-width: 260px; width: 100%">
+                        <form action="{% url 'search_results' %}" method="get" id="search-form" autocomplete="off">
+                            {% csrf_token %}
+                            <input type="text" class="search form__field clear-search" placeholder="Поиск" name="q" id="search-input" required />
+                            <label for="name" class="form__label">Поиск</label>
+                            <div id="results-box" class="results-card not-visible" style="min-width: 260px; max-width: 260px; width: 100%">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+
+
+  {% block content %}
+
+  {% endblock %}
+
+
+  <div class="main-container">
+
+        <footer class="footer_area section_padding_130_0">
+            <div class="container">
+            <hr style="border-top: 1px dashed rgb(0, 0, 0);">
+            <div class="row">
+                <!-- Single Widget-->
+                <div class="col-12 col-sm-6 col-lg-4">
+                <div class="single-footer-widget section_padding_0_130">
+                    <!-- Footer Logo-->
+                    <div class="footer-logo mb-3"></div>
+                        <p class="footer-title" style="font-weight: 700; font-size: 16px;">MebelRest - ремонт мебели и услуги по обивке. Мы реставрируем мебель.</p>
+                    <!-- Copywrite Text-->
+                    <div class="copywrite-text mb-5">
+                    <p class="footer-title mb-0" style="font-size: 12px;">Сделано с помощью: <i class="lni-heart mr-1"></i>
+                        <a class="ml-1" style="font-size: 12px;" href="https://www.djangoproject.com">Django,</a>
+                        <a class="ml-1" style="font-size: 12px;" href="https://getbootstrap.com">Bootstrap</a>
+                    </p>
+                    </div>
+                    <!-- Footer Social Area-->
+                    <div class="footer_social_area"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram"><i class="fa fa-instagram"></i></a></div>
+                </div>
+                </div>
+                <!-- Single Widget-->
+                <div class="col-12 col-sm-6 col-lg">
+                <div class="single-footer-widget section_padding_0_130">
+                    <!-- Widget Title-->
+                    <h5 class="footer-title widget-title">О компании</h5>
+                    <!-- Footer Menu-->
+                    <div class="footer_menu">
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                    </ul>
+                    </div>
+                </div>
+                </div>
+                <!-- Single Widget-->
+                <!-- <div class="col-12 col-sm-6 col-lg">
+                <div class="single-footer-widget section_padding_0_130">
+                    <h5 class="widget-title">Support</h5>
+                    <div class="footer_menu">
+                    <ul>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Term &amp; Conditions</a></li>
+                        <li><a href="#">Help &amp; Support</a></li>
+                    </ul>
+                    </div>
+                </div>
+                </div> -->
+                <!-- Single Widget-->
+                <!-- <div class="col-12 col-sm-6 col-lg">
+                <div class="single-footer-widget section_padding_0_130">
+                    <h5 class="widget-title">Contact</h5>
+                    <div class="footer_menu">
+                    <ul>
+                        <li><a href="#">Call Centre</a></li>
+                        <li><a href="#">Email Us</a></li>
+                        <li><a href="#">Term &amp; Conditions</a></li>
+                        <li><a href="#">Help Center</a></li>
+                    </ul>
+                    </div>
+                </div>
+                </div> -->
+            </div>
+            </div>
+        </footer>
+        <br>
+    </div>
+</body>
+</html>
